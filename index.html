@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Handball Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🤾</div>
+      <div class="brandText">
+        <div class="title">Handball Manager</div>
+        <div class="subtitle">V4 • Wizard + ocene (FM stil)</div>
+      </div>
+    </div>
+    <div class="rightPills" id="globalControls">
+      <button id="navBackBtn" class="pill pillBtn" type="button">◀ Nazad</button>
+      <button id="navNextBtn" class="pill pillBtn" type="button">Napred ▶</button>
+      <button id="optionsBtn" class="pill pillBtn" type="button">⚙ Opcije</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div id="app"></div>
+  </main>
+
+  <!-- Global transition overlay (animated) -->
+  <div id="transitionOverlay" class="transitionOverlay hidden" aria-hidden="true">
+    <div class="transitionCard">
+      <div class="transitionTitle" id="transitionTitle">Učitavanje…</div>
+      <div class="transitionSub" id="transitionSub">Pripremamo sledeći korak.</div>
+      <div class="transitionBar"><div class="transitionFill"></div></div>
+      <div class="transitionShine"></div>
+    </div>
+  </div>
+
+  <script src="db.js"></script>
+  <script src="modules/engine_context.js"></script>
+  <script src="modules/team_api.js"></script>
+  <script src="modules/match_engine.js"></script>
+  <script src="modules/fm_skin.js"></script>
+  <script src="app.js"></script>
+
+  <!-- Settings Modal (UI only; state-backed language switch) -->
+  <div id="settingsModal" class="modalOverlay hidden" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+    <div class="modalCard">
+      <div class="modalHeader">
+        <div id="settingsTitle" class="modalTitle">Podešavanja igre</div>
+        <button id="settingsClose" class="iconBtn" type="button" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modalBody">
+        <div class="formRow">
+          <label for="langSelect" id="langLabel">Jezik</label>
+          <select id="langSelect"></select>
+        </div>
+
+        <div class="formRow">
+          <label for="autosaveSelect" id="autosaveLabel">Auto čuvanje</label>
+          <select id="autosaveSelect"></select>
+        </div>
+      </div>
+
+      <div class="modalFooter">
+        <button id="settingsSave" class="btnPrimary" type="button">Sačuvaj</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

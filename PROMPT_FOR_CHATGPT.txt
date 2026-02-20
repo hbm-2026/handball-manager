@@ -1,0 +1,28 @@
+IMAM JEDNU IGRICU PODELJENU U 2 FAZE I OVO JE ZAJEDNIČKA MAPA (NE PRAVI NOVU IGRICU).
+
+STRUKTURA:
+- HandballManager_FINAL/app.js        = FAZA 1 (wizard/koraci) i to je GLAVNI kod
+- HandballManager_FINAL/modules/fm_skin.js = FAZA 2 (FM skin) i mora da postane MODUL
+
+ZADATAK (uradi redom):
+1) U modules/fm_skin.js izdvoji FM ekran u funkciju, npr:
+   - export function renderFMSkin(state, mountEl) { ... }
+   Bez hardcode podataka (nema PSG hardcode). Sve čita iz "state" iz FAZE 1.
+
+2) U app.js (FAZA 1) izmeni klik na dugme "Započni karijeru" tako da:
+   - zaključa izbor (izabrani klub/reprezentacija/budžet/ciljevi/pritisak/roster/štab)
+   - postavi npr. state.screen = "fm" (ili slično)
+   - zatim pozove render() koji prikazuje FM skin pozivom renderFMSkin(state, root)
+
+3) U render() logici FAZE 1 dodaj novu granu za FM ekran:
+   - ako je state.screen === "fm" (ili ekvivalent), renderuj FM skin
+   - inače zadrži postojeće korake wizard-a kao do sada
+
+4) CSS: style.css je iz FAZE 1. Dodaj samo potrebne stilove iz FM skina (iz FAZE 2), NA KRAJ fajla, bez brisanja postojećeg.
+
+OBAVEZNA PRAVILA PROJEKTA:
+- Gde god se prikazuju igrači ili treneri (liste, tabele, mejlovi, transferi, trening, takmičenja…), moraju biti KLIKABILNI i otvarati njihov profil/karticu.
+- Ne resetuj state pri prelasku na FM ekran.
+- Ne pravi novu strukturu foldera van ove mape.
+
+AKO NISI SIGURAN: pitaj ili ostavi TODO komentar, ali ne izmišljaj.

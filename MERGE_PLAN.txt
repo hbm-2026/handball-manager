@@ -1,0 +1,24 @@
+HANDBALL MANAGER – MAPA ZA SPAJANJE (FAZA 1 + FAZA 2)
+
+CILJ
+- Jedna igrica, jedan entry point.
+- FAZA 1 (wizard/izbor) ostaje glavni tok.
+- FAZA 2 (FM skin) se uvozi kao modul i poziva klikom na "Započni karijeru".
+
+STRUKTURA
+HandballManager_FINAL/
+  index.html              (iz FAZE 1)
+  style.css               (iz FAZE 1, FM stilovi se kasnije dodaju na kraj)
+  app.js                  (FAZA 1 – GLAVNI)
+  modules/
+    fm_skin.js            (FAZA 2 app.js preimenovan u modul)
+
+ŠTA JE VEĆ URAĐENO U OVOJ MAPI
+1) FAZA 1 fajlovi su postavljeni kao glavni projekat: index.html, style.css, app.js
+2) FAZA 2 app.js je prebačen i preimenovan u: modules/fm_skin.js
+3) Napravljen je prompt (PROMPT_FOR_CHATGPT.txt) koji tačno opisuje kako da ChatGPT spoji u JEDNU igricu.
+
+NAPOMENE
+- Ne sme se pregaziti app.js iz FAZE 1.
+- FAZA 2 trenutno ima hardcode (npr. PSG). ChatGPT treba da prevede FM skin da koristi state iz FAZE 1.
+- style.css: u FAZU 1 dodati samo potrebne FM stilove (bez brisanja postojecih).
